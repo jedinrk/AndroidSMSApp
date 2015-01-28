@@ -9,8 +9,16 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:text="@string/hello_world"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="SMS Inbox"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView android:id="@+id/SMSList"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp" />
 
 </RelativeLayout>
