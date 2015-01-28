@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,9 +54,13 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         if (indexBody < 0 || !smsInboxCursor.moveToFirst()) return;
         arrayAdapter.clear();
         do {
-            String str = "SMS From: " + smsInboxCursor.getString(indexAddress) +
-                    "\n" + smsInboxCursor.getString(indexBody) + "\n";
-            arrayAdapter.add(str);
+            Log.v("Main", "Phone no: " + smsInboxCursor.getString(indexAddress));
+            if(smsInboxCursor.getString(indexAddress).equals("+919895790925")){
+                String str = "SMS From: " + smsInboxCursor.getString(indexAddress) +
+                        "\n" + smsInboxCursor.getString(indexBody) + "\n";
+                arrayAdapter.add(str);
+            }
+
         } while (smsInboxCursor.moveToNext());
     }
 
